@@ -1,4 +1,5 @@
 import { Entity, ObjectID, ObjectIdColumn, Column } from "typeorm"
+import { Member } from "src/team/entities/member.entity"
 
 @Entity()
 export class Task {
@@ -12,7 +13,7 @@ export class Task {
     due_date: Date
 
     @Column()
-    assignee: string
+    assignee: Member[]
 
     @Column({ default: false })
     status: boolean;

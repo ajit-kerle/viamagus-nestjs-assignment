@@ -4,6 +4,7 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TaskModule } from './task/task.module';
 import { TeamModule } from './team/team.module';
+import { MembersModule } from './members/members.module';
 
 
 
@@ -24,7 +25,8 @@ TypeOrmModule.forRoot({
       // synchronize:true,
     }),
 TaskModule,
-TeamModule
+TeamModule,
+MembersModule
 ],
   controllers: [],
   providers: [],

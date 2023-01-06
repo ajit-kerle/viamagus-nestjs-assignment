@@ -1,4 +1,3 @@
-import { type, } from "os"
 import { Entity, ObjectID, ObjectIdColumn, Column } from "typeorm"
 import { Member } from "./member.entity"
 

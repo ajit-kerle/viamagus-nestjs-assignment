@@ -25,7 +25,7 @@ export class TeamService {
     
     for(let obj of createTeamDto.members){
         member.member_name=obj.member_name
-        member.task_desc=obj.task_desc
+        member.member_id=obj.member_id
         members.push(member)
     }
     team.members=members
@@ -44,7 +44,7 @@ export class TeamService {
   // }
 
   update(id: number, updateTeamDto: UpdateTeamDto) {
-    return 
+    return "update api in team category"
   }
 
   remove(id: number) {

@@ -1,4 +1,5 @@
 import { IsArray, IsString } from "class-validator";
+import {ObjectID} from 'typeorm'
 
 export class CreateTeamDto {
     
@@ -7,8 +8,7 @@ export class CreateTeamDto {
 
     @IsArray()
     members:[{   
-    
+        member_id:ObjectID;
         member_name:string
-        task_desc:string
     }];
 }

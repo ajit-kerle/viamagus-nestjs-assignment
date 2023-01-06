@@ -1,15 +1,22 @@
-import { IsBoolean, IsString } from "class-validator";
-// import { IsDate } from "class-validator/types/decorator/decorators";
+import { IsBoolean, IsNotEmpty, IsString,IsArray, IsOptional } from "class-validator";
+import {ObjectID} from 'typeorm'
+
 
 export class CreateTaskDto {
+
     @IsString()
+    @IsNotEmpty()
     description:string;
 
-    @IsString() 
+    @IsString()
     due_date:Date;
 
-    @IsString()
-    assignee:string;
+    @IsArray()
+    @IsOptional() 
+    assignee:[{   
+        member_id:ObjectID;
+        member_name:string;
+    }];
 
     @IsBoolean()
     status: boolean;
