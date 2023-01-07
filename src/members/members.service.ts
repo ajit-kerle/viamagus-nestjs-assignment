@@ -4,7 +4,7 @@ import { UpdateMemberDto } from './dto/update-member.dto';
 import {InjectRepository} from '@nestjs/typeorm';
 import { MongoRepository } from 'typeorm';
 import { Member } from './entities/member.entity';
-
+import { ObjectID } from 'typeorm';
 
 @Injectable()
 export class MembersService {
@@ -25,22 +25,22 @@ export class MembersService {
   }
 
   findAll() {
-    return `This action returns all members`;
+    return this.memberRepository.find()
   }
   
   login(){
      return `login api here`
    }
 
-  findOne(id: number) {
+  findOne(id: ObjectID) {
     return `This action returns a #${id} member`;
   }
 
-  update(id: number, updateMemberDto: UpdateMemberDto) {
+  update(id: ObjectID, updateMemberDto: UpdateMemberDto) {
     return `This action updates a #${id} member`;
   }
 
-  remove(id: number) {
+  remove(id: ObjectID) {
     return `This action removes a #${id} member`;
   }
 }

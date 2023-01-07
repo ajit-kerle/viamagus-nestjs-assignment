@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete,ValidationPipe } from
 import { TaskService } from './task.service';
 import { CreateTaskDto } from './dto/create-task.dto';
 import { UpdateTaskDto } from './dto/update-task.dto';
-import { ObjectId } from 'mongoose';
+import { ObjectID } from 'typeorm';
 
 @Controller('task')
 export class TaskController {
@@ -19,18 +19,18 @@ export class TaskController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id:string) {
+  findOne(@Param('id') id:ObjectID) {
     
-    return this.taskService.findOne(+id);
+    return this.taskService.findOne(id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body(ValidationPipe) updateTaskDto: UpdateTaskDto) {
-    return this.taskService.update(+id, updateTaskDto);
+  update(@Param('id') id: ObjectID, @Body(ValidationPipe) updateTaskDto: UpdateTaskDto) {
+    return this.taskService.update(id, updateTaskDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.taskService.remove(+id);
+  remove(@Param('id') id: ObjectID) {
+    return this.taskService.remove(id);
   }
 }

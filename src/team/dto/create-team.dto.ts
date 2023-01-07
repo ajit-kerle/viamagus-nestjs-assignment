@@ -1,5 +1,6 @@
 import { IsArray, IsString } from "class-validator";
 import {ObjectID} from 'typeorm'
+import { Member } from "../entities/member.entity";
 
 export class CreateTeamDto {
     

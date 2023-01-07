@@ -1,11 +1,11 @@
-import { ObjectID, Column } from "typeorm"
+import { ObjectID, Column,ObjectIdColumn,Entity } from "typeorm"
 
 
 
 export class Member {
-    @Column()
+    // @ObjectIdColumn()
+    
     member_id: ObjectID
 
-    @Column()
     member_name:string
 }

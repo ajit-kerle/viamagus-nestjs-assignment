@@ -4,7 +4,7 @@ import { UpdateTaskDto } from './dto/update-task.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { MongoRepository } from 'typeorm';
 import { Task } from './entities/task.entity';
-import { ObjectId } from 'mongoose';
+import { ObjectID } from "typeorm"
 import { Member } from 'src/team/entities/member.entity';
 
 @Injectable()
@@ -37,12 +37,12 @@ export class TaskService {
     return this.taskRepository.find()
   }
 
-  findOne(id:number) {
-    console.log(id)
-    return this.taskRepository.findOneBy({where:{_id:id}})
+  findOne(id:ObjectID) {
+    // console.log(id)
+    return this.taskRepository.findOne({where:{id:id}})
   }
 
-  update(id: number, updateTaskDto: UpdateTaskDto) {
+  update(id: ObjectID, updateTaskDto: UpdateTaskDto) {
     let task:Task=new Task()
     task.description=updateTaskDto.description
     task.due_date=updateTaskDto.due_date
@@ -50,7 +50,7 @@ export class TaskService {
     return this.taskRepository.update(id,task)
   }
 
-  remove(id: number) {
+  remove(id: ObjectID) {
     return this.taskRepository.delete(id)
   }
 }

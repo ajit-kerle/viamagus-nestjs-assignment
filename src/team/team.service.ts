@@ -38,16 +38,16 @@ export class TeamService {
     return this.teamRepository.find()
   }
 
-  // findOne(id: number) {
-  //   console.log(id)
-  //   return this.teamRepository.findOne(id)
-  // }
+  findOne(id: ObjectID) {
+    console.log(id)
+    return this.teamRepository.findOne({where:{id:id}})
+  }
 
-  update(id: number, updateTeamDto: UpdateTeamDto) {
+  update(id: ObjectID, updateTeamDto: UpdateTeamDto) {
     return "update api in team category"
   }
 
-  remove(id: number) {
+  remove(id: ObjectID) {
     return `This action removes a #${id} team`;
   }
 }

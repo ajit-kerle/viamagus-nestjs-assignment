@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete,ValidationPipe } from
 import { MembersService } from './members.service';
 import { CreateMemberDto } from './dto/create-member.dto';
 import { UpdateMemberDto } from './dto/update-member.dto';
+import {ObjectID} from 'typeorm';
 
 @Controller('members')
 export class MembersController {
@@ -23,17 +24,17 @@ export class MembersController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.membersService.findOne(+id);
+  findOne(@Param('id') id: ObjectID) {
+    return this.membersService.findOne(id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body(ValidationPipe) updateMemberDto: UpdateMemberDto) {
-    return this.membersService.update(+id, updateMemberDto);
+  update(@Param('id') id: ObjectID, @Body(ValidationPipe) updateMemberDto: UpdateMemberDto) {
+    return this.membersService.update(id, updateMemberDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.membersService.remove(+id);
+  remove(@Param('id') id: ObjectID) {
+    return this.membersService.remove(id);
   }
 }
